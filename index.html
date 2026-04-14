@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="cachorro.png" type="image/x-icon">
+  <title>Patas & Amor — PetShop</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="loader-paw">🐾</div>
+    <p>Carregando com amor...</p>
+  </div>
+
+  <header class="header" id="home">
+    <div class="header-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+      <div class="nav-logo">
+        <span class="paw-icon">🐾</span>
+        <span class="logo-text">Patas <em>&</em> Amor</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Início</a></li>
+        <li><a href="#services" class="nav-link">Serviços</a></li>
+        <li><a href="#products" class="nav-link">Produtos</a></li>
+        <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+        <li><a href="#testimonials" class="nav-link">Avaliações</a></li>
+        <li><a href="#contact" class="nav-link">Contato</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="hero-badge">✨ Com amor desde 2010</span>
+        <h1 class="hero-title">
+          Seu pet merece<br/>
+          <em>o melhor cuidado</em>
+        </h1>
+        <p class="hero-desc">
+          Banho, tosa, veterinária e muito mais — tudo em um lugar feito com carinho para os membros mais especiais da sua família.
+        </p>
+        <div class="hero-cta">
+          <a href="#services" class="btn btn-primary">Ver Serviços</a>
+          <a href="#contact" class="btn btn-outline">Agendar Agora</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" data-target="2400">0</span><span>+</span>
+            <span class="stat-label">Pets Felizes</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-target="14">0</span><span>+</span>
+            <span class="stat-label">Anos de Amor</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number" data-target="98">0</span><span>%</span>
+            <span class="stat-label">Satisfação</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-card floating">
+          <div class="hero-card-img">
+            <div class="pet-emoji-big">🐶</div>
+          </div>
+          <div class="floating-badge badge-top">
+            <i class="fas fa-star"></i> Melhor PetShop 2024
+          </div>
+          <div class="floating-badge badge-bottom">
+            <i class="fas fa-heart"></i> +200 avaliações 5★
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Role para baixo</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </header>
+
+  <section class="section services" id="services">
+    <div class="section-header">
+      <span class="section-tag">O que oferecemos</span>
+      <h2 class="section-title">Nossos <em>Serviços</em></h2>
+      <p class="section-sub">Cuidado completo do focinho à cauda, com profissionais apaixonados pelo que fazem.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos>
+        <div class="service-icon">🛁</div>
+        <h3>Banho & Tosa</h3>
+        <p>Banho relaxante com produtos premium, tosa estilizada e secagem profissional.</p>
+        <span class="service-price">A partir de R$ 45</span>
+        <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card featured" data-aos>
+        <div class="featured-badge">Mais Pedido</div>
+        <div class="service-icon">🩺</div>
+        <h3>Consulta Veterinária</h3>
+        <p>Equipe veterinária especializada para check-ups, vacinas e tratamentos.</p>
+        <span class="service-price">A partir de R$ 80</span>
+        <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">✂️</div>
+        <h3>Estética Pet</h3>
+        <p>Cortes criativos, coloração pet-safe e acessórios para deixar o seu pet único.</p>
+        <span class="service-price">A partir de R$ 60</span>
+        <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">🏨</div>
+        <h3>Hotel Pet</h3>
+        <p>Hospedagem segura e confortável para quando você viaja, com câmeras ao vivo.</p>
+        <span class="service-price">A partir de R$ 70/dia</span>
+        <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">🎓</div>
+        <h3>Adestramento</h3>
+        <p>Treinamento positivo com adestrador certificado para um pet equilibrado.</p>
+        <span class="service-price">A partir de R$ 120/sessão</span>
+        <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-aos>
+        <div class="service-icon">🚗</div>
+        <h3>Pet Taxi</h3>
+        <p>Buscamos e levamos seu pet com segurança, conforto e muito carinho.</p>
+        <span class="service-price">A partir de R$ 25</span>
+        <a href="#contact" class="service-link">Agendar <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section products" id="products">
+    <div class="section-header">
+      <span class="section-tag">Loja Online</span>
+      <h2 class="section-title">Produtos <em>Selecionados</em></h2>
+      <p class="section-sub">Escolhemos os melhores produtos para saúde e alegria do seu bichinho.</p>
+    </div>
+    <div class="products-filter">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="food">Alimentação</button>
+      <button class="filter-btn" data-filter="hygiene">Higiene</button>
+      <button class="filter-btn" data-filter="accessories">Acessórios</button>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <div class="product-card" data-category="food" data-aos>
+        <div class="product-img">🥩</div>
+        <div class="product-info">
+          <span class="product-category">Alimentação</span>
+          <h4>Ração Premium Golden</h4>
+          <div class="product-rating">★★★★★ <span>(128)</span></div>
+          <div class="product-footer">
+            <span class="product-price">R$ 89,90</span>
+            <button class="add-cart" data-name="Ração Premium Golden" data-price="89.90">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="hygiene" data-aos>
+        <div class="product-img">🧴</div>
+        <div class="product-info">
+          <span class="product-category">Higiene</span>
+          <h4>Shampoo Neutro Biovet</h4>
+          <div class="product-rating">★★★★☆ <span>(74)</span></div>
+          <div class="product-footer">
+            <span class="product-price">R$ 34,90</span>
+            <button class="add-cart" data-name="Shampoo Neutro Biovet" data-price="34.90">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="accessories" data-aos>
+        <div class="product-img">🦮</div>
+        <div class="product-info">
+          <span class="product-category">Acessórios</span>
+          <h4>Coleira Couro Premium</h4>
+          <div class="product-rating">★★★★★ <span>(52)</span></div>
+          <div class="product-footer">
+            <span class="product-price">R$ 59,90</span>
+            <button class="add-cart" data-name="Coleira Couro Premium" data-price="59.90">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="food" data-aos>
+        <div class="product-img">🐟</div>
+        <div class="product-info">
+          <span class="product-category">Alimentação</span>
+          <h4>Petisco Natural Salmão</h4>
+          <div class="product-rating">★★★★★ <span>(93)</span></div>
+          <div class="product-footer">
+            <span class="product-price">R$ 22,90</span>
+            <button class="add-cart" data-name="Petisco Natural Salmão" data-price="22.90">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="accessories" data-aos>
+        <div class="product-img">🧸</div>
+        <div class="product-info">
+          <span class="product-category">Acessórios</span>
+          <h4>Brinquedo Interativo Kong</h4>
+          <div class="product-rating">★★★★★ <span>(67)</span></div>
+          <div class="product-footer">
+            <span class="product-price">R$ 44,90</span>
+            <button class="add-cart" data-name="Brinquedo Interativo Kong" data-price="44.90">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" data-category="hygiene" data-aos>
+        <div class="product-img">🪥</div>
+        <div class="product-info">
+          <span class="product-category">Higiene</span>
+          <h4>Kit Escova Dental Pet</h4>
+          <div class="product-rating">★★★★☆ <span>(41)</span></div>
+          <div class="product-footer">
+            <span class="product-price">R$ 19,90</span>
+            <button class="add-cart" data-name="Kit Escova Dental Pet" data-price="19.90">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="about-container">
+      <div class="about-visual">
+        <div class="about-card-wrap">
+          <div class="about-card-main">
+            <div class="about-emoji-grid">
+              <span>🐶</span><span>🐱</span>
+              <span>🐰</span><span>🐦</span>
+            </div>
+            <p>Família de 4 patas</p>
+          </div>
+          <div class="about-badge-float">
+            <i class="fas fa-award"></i>
+            <span>Premiados<br/>2022 & 2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-tag">Quem Somos</span>
+        <h2 class="section-title">Feito por <em>amantes</em><br/>de animais</h2>
+        <p>Somos uma equipe apaixonada por pets que acredita que cada animal merece atenção, carinho e os melhores cuidados. Fundado em 2010, o <strong>Patas & Amor</strong> nasceu do sonho de criar um espaço onde tutores confiam plenamente no cuidado dos seus bichinhos.</p>
+        <p>Nossa equipe é formada por veterinários, tosadores e cuidadores certificados, sempre em atualização para oferecer o que há de mais moderno em bem-estar animal.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Profissionais certificados</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Produtos 100% naturais e seguros</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Ambiente higienizado e controlado</span>
+          </div>
+          <div class="about-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Câmeras ao vivo para os tutores</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Conheça Nossa Equipe</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials" id="testimonials">
+    <div class="section-header">
+      <span class="section-tag">Depoimentos</span>
+      <h2 class="section-title">O que dizem <em>sobre nós</em></h2>
+    </div>
+    <div class="testimonials-track" id="testimonialTrack">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Minha golden retriever adora vir aqui! O tratamento é excepcional e ela sempre sai linda e feliz. Recomendo demais!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <strong>Mariana Costa</strong>
+            <span>Tutora da Bella</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Já tentei vários petshops e nenhum se compara. A equipe é super atenciosa e meu gato que é difícil ficou completamente calmo!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👨</div>
+          <div>
+            <strong>Rafael Oliveira</strong>
+            <span>Tutor do Mingau</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"O hotel pet é maravilhoso! Viajei tranquila sabendo que minha Mel estava sendo cuidada com amor. As fotos enviadas me deixaram emocionada."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩‍🦱</div>
+          <div>
+            <strong>Juliana Ferreira</strong>
+            <span>Tutora da Mel</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"O adestramento transformou meu cachorro! Em 8 sessões ele aprendeu comandos que eu tentava há anos. Profissional incrível!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👨‍🦲</div>
+          <div>
+            <strong>Carlos Mendes</strong>
+            <span>Tutor do Thor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-dots" id="testimonialDots"></div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <span class="section-tag">Fale Conosco</span>
+        <h2 class="section-title">Agende sua <em>visita</em></h2>
+        <p>Estamos prontos para receber você e seu pet com todo carinho que vocês merecem.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <strong>Endereço</strong>
+              <span>Rua das Flores, 142 — Bairro Jardim</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <strong>Telefone</strong>
+              <span>(83) 9 9999-0000</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>(83) 9 9999-0001</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <strong>Horário</strong>
+              <span>Seg–Sáb: 08h–19h | Dom: 09h–14h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <h3>Envie uma mensagem</h3>
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Seu nome" required/>
+          <label for="name">Seu nome</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Seu e-mail" required/>
+          <label for="email">Seu e-mail</label>
+        </div>
+        <div class="form-group">
+          <select id="service">
+            <option value="">Selecione um serviço</option>
+            <option>Banho & Tosa</option>
+            <option>Consulta Veterinária</option>
+            <option>Estética Pet</option>
+            <option>Hotel Pet</option>
+            <option>Adestramento</option>
+            <option>Pet Taxi</option>
+          </select>
+          <label for="service">Serviço desejado</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" placeholder="Sua mensagem..." rows="4"></textarea>
+          <label for="message">Mensagem</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <i class="fas fa-paper-plane"></i> Enviar Mensagem
+        </button>
+        <p class="form-success" id="formSuccess">✅ Mensagem enviada! Entraremos em contato em breve.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="paw-icon">🐾</span>
+        <span class="logo-text">Patas <em>&</em> Amor</span>
+        <p>Cuidado com amor para os membros mais especiais da sua família.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Banho & Tosa</a></li>
+          <li><a href="#">Veterinária</a></li>
+          <li><a href="#">Estética Pet</a></li>
+          <li><a href="#">Hotel Pet</a></li>
+          <li><a href="#">Adestramento</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Nossa Equipe</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Trabalhe Conosco</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Receba dicas, promoções e novidades sobre o mundo pet!</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Seu e-mail"/>
+          <button><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Patas & Amor PetShop — Feito com 🐾 em João Pessoa, PB</p>
+      <p><a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>🛍️ Seu Carrinho</h3>
+      <button id="closeCart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <span>🐾</span>
+        <p>Seu carrinho está vazio</p>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="btn btn-primary btn-full">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>
