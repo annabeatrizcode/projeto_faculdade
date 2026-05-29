@@ -422,5 +422,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    const errorMsg = document.getElementById('formError');
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+
+    const templateParams = {
+      from_name:  document.getElementById('name').value,
+      from_email: document.getElementById('email').value,
+      service:    document.getElementById('service').value || 'Não especificado',
+      message:    document.getElementById('message').value,
+    };
+
+    emailjs.send(
+      'service_hi06ckn',   // 🔑 substitua
+      'template_69vdduo',  // 🔑 substitua
+      templateParams
+    )
+    .then(function() {
+      successMsg.style.display = 'block';
+      document.getElementById('contactForm').reset();
+    })
+    .catch(function(error) {
+      console.error('EmailJS error:', error);
+      errorMsg.style.display = 'block';
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+    });
+  });
+
   console.log('🐾 Patas & Amor — PetShop carregado com amor!');
 });
