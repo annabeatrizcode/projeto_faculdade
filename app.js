@@ -422,7 +422,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  
+  console.log('🐾 Patas & Amor — PetShop carregado com amor!');
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const btn = document.getElementById('submitBtn');
@@ -459,6 +463,3 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
     });
   });
-
-  console.log('🐾 Patas & Amor — PetShop carregado com amor!');
-});
