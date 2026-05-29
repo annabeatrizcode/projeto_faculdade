@@ -372,26 +372,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // ========================================
-  // 9. CONTACT FORM
-  // ========================================
-  const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = contactForm.querySelector('button[type="submit"]');
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    btn.disabled = true;
-
-    setTimeout(() => {
-      formSuccess.classList.add('show');
-      contactForm.reset();
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
-      btn.disabled = false;
-      setTimeout(() => formSuccess.classList.remove('show'), 5000);
-    }, 1800);
-  });
+  
+  
 
 
   // ========================================
