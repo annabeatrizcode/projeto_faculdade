@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     emailjs.send(
-      'service_hi06ckn',   // 🔑 substitua
+      'service_kqzmip6',   // 🔑 substitua
       'template_69vdduo',  // 🔑 substitua
       templateParams
     )
