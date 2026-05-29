@@ -2,43 +2,7 @@
    PATAS & AMOR — PETSHOP
    JavaScript Principal
    ============================================= */
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
 
-    const btn = document.getElementById('submitBtn');
-    const successMsg = document.getElementById('formSuccess');
-    const errorMsg = document.getElementById('formError');
-
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    successMsg.style.display = 'none';
-    errorMsg.style.display = 'none';
-
-    const templateParams = {
-      from_name:  document.getElementById('name').value,
-      from_email: document.getElementById('email').value,
-      service:    document.getElementById('service').value || 'Não especificado',
-      message:    document.getElementById('message').value,
-    };
-
-    emailjs.send(
-      'service_kqzmip6',   // 🔑 substitua
-      'template_69vdduo',  // 🔑 substitua
-      templateParams
-    )
-    .then(function() {
-      successMsg.style.display = 'block';
-      document.getElementById('contactForm').reset();
-    })
-    .catch(function(error) {
-      console.error('EmailJS error:', error);
-      errorMsg.style.display = 'block';
-    })
-    .finally(function() {
-      btn.disabled = false;
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
-    });
-  });
 document.addEventListener('DOMContentLoaded', () => {
 
   // ========================================
@@ -72,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.toggle('open');
   });
 
-  // Close mobile menu on link click
   allLinks.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
@@ -80,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Active nav link on scroll
   const sections = document.querySelectorAll('section[id], header[id]');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -255,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Expose to global for inline onclick
   window.removeCartItem = removeFromCart;
 
   function animateCartBtn() {
@@ -311,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cards   = track.querySelectorAll('.testimonial-card');
   let currentSlide = 0;
   let autoPlay;
-  
+
   const getVisible = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
 
   function buildDots() {
@@ -356,7 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
   track.addEventListener('mouseenter', () => clearInterval(autoPlay));
   track.addEventListener('mouseleave', startAuto);
 
-  // Touch/swipe
   let touchStartX = 0;
   track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', e => {
@@ -372,8 +332,42 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  
-  
+  // ========================================
+  // 9. CONTACT FORM — EmailJS
+  // ========================================
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const btn        = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    const errorMsg   = document.getElementById('formError');
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    successMsg.style.display = 'none';
+    errorMsg.style.display   = 'none';
+
+    const templateParams = {
+      from_name:  document.getElementById('name').value,
+      from_email: document.getElementById('email').value,
+      service:    document.getElementById('service').value || 'Não especificado',
+      message:    document.getElementById('message').value,
+    };
+
+    emailjs.send('service_kqzmip6', 'template_69vdduo', templateParams)
+      .then(function() {
+        successMsg.style.display = 'block';
+        document.getElementById('contactForm').reset();
+      })
+      .catch(function(error) {
+        console.error('EmailJS error:', error);
+        errorMsg.style.display = 'block';
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+      });
+  });
 
 
   // ========================================
@@ -420,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================
   // 13. NEWSLETTER
   // ========================================
-  const newsletterBtn = document.querySelector('.newsletter-form button');
+  const newsletterBtn   = document.querySelector('.newsletter-form button');
   const newsletterInput = document.querySelector('.newsletter-form input');
 
   if (newsletterBtn) {
@@ -440,8 +434,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  
   console.log('🐾 Patas & Amor — PetShop carregado com amor!');
 });
-
-
