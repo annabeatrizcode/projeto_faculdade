@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout PetShop Completo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Poppins;
+      background: #F7F1E8;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      padding: 30px;
+    }
+
+    /* CARD */
+    .card {
+      background: linear-gradient(180deg, #FFF9F1, #FFF4E7);
+      border: 3px solid #D4A437;
+      border-radius: 25px;
+      padding: 20px;
+    }
+
+    /* TITULO */
+    h2 {
+      color: #6B3F1F;
+    }
+
+    /* INPUTS */
+    select,
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: 2px solid #E7D0A2;
+    }
+
+    /* BOTÃO */
+    button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #D4A437, #B8860B);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ITEM */
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      margin-top: 8px;
+      background: #FFF3DD;
+      border-radius: 10px;
+    }
+
+    /* TOTAL */
+    .total {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #D4A437, #B8860B);
+      color: white;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    /* PAYBOX */
+    .paybox {
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 2px dashed #D4A437;
+      background: #FFF7EA;
+    }
+
+    .hidden {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- CARRINHO AUTOMÁTICO -->
+    <div class="card">
+
+      <h2><i class="fas fa-shopping-bag"></i> Seu Pedido</h2>
+
+      <!-- ADICIONAR ITENS -->
+      <select id="selectItem">
+
+        <option value="Banho & Tosa|45">🛁 Banho & Tosa</option>
+        <option value="Consulta Veterinária|80">🩺 Consulta Veterinária</option>
+        <option value="Estética Pet|60">✂️ Estética Pet</option>
+        <option value="Hotel Pet|70">🏨 Hotel Pet</option>
+        <option value="Adestramento|120">🎓 Adestramento</option>
+        <option value="Pet Taxi|25">🚗 Pet Taxi</option>
+
+        <option value="Ração Golden|89.90">🥩 Ração Golden</option>
+        <option value="Shampoo Biovet|34.90">🧴 Shampoo Biovet</option>
+        <option value="Coleira Premium|59.90">🦮 Coleira Premium</option>
+        <option value="Petisco Salmão|22.90">🐟 Petisco Salmão</option>
+        <option value="Brinquedo Kong|44.90">🧸 Brinquedo Kong</option>
+        <option value="Escova Dental|19.90">🪥 Escova Dental</option>
+
+      </select>
+
+      <input type="number" id="qty" value="1">
+
+      <button onclick="addItem()">➕ Adicionar</button>
+
+      <hr>
+
+      <div id="cart"></div>
+
+      <div class="total" id="total">Total: R$ 0,00</div>
+
+    </div>
+
+    <!-- PAGAMENTO -->
+    <div class="card">
+
+      <h2>💳 Pagamento</h2>
+
+      <input placeholder="Nome completo">
+      <input placeholder="CPF">
+
+      <button onclick="show('card')">💳 Cartão</button>
+      <button onclick="show('pix')">🟢 PIX</button>
+      <button onclick="show('cash')">💵 Dinheiro</button>
+      <button onclick="show('boleto')">🧾 Boleto</button>
+
+      <!-- CARTÃO -->
+      <div id="card" class="paybox hidden">
+        <h3>Cartão de Crédito 💳</h3>
+        <input placeholder="Nome no cartão">
+        <input placeholder="Número do cartão">
+        <input placeholder="Validade (MM/AA)">
+        <input placeholder="CVV">
+      </div>
+
+      <!-- PIX -->
+      <div id="pix" class="paybox hidden">
+        <h3>PIX 🟢</h3>
+        <p><b>Chave PIX:</b> 163.916.904-05</p>
+      </div>
+
+      <!-- DINHEIRO -->
+      <div id="cash" class="paybox hidden">
+        <h3>Dinheiro 💵</h3>
+        <input placeholder="Valor pago">
+        <input placeholder="Troco para quanto?">
+      </div>
+
+      <!-- BOLETO -->
+      <div id="boleto" class="paybox hidden">
+        <h3>Boleto 🧾</h3>
+        <input placeholder="CPF do titular">
+        <input placeholder="Nome completo">
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    /* SALVAR */
+    function save() {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    /* ADICIONAR */
+    function addItem() {
+
+      let data = document.getElementById("selectItem").value.split("|");
+      let qty = document.getElementById("qty").value;
+
+      cart.push({
+        name: data[0],
+        price: parseFloat(data[1]),
+        qty: parseInt(qty)
+      });
+
+      save();
+      render();
+
+    }
+
+    /* REMOVER */
+    function removeItem(i) {
+      cart.splice(i, 1);
+      save();
+      render();
+    }
+
+    /* RENDER */
+    function render() {
+
+      let div = document.getElementById("cart");
+      let total = 0;
+
+      div.innerHTML = "";
+
+      if (cart.length === 0) {
+        div.innerHTML = "<p>Nenhum item no carrinho 🐾</p>";
+        document.getElementById("total").innerText = "Total: R$ 0,00";
+        return;
+      }
+
+      cart.forEach((item, i) => {
+
+        let t = item.price * item.qty;
+        total += t;
+
+        div.innerHTML += `
+      <div class="item">
+        <span>🐾 ${item.name} x${item.qty}</span>
+        <button onclick="removeItem(${i})">🗑️</button>
+      </div>
+    `;
+
+      });
+
+      document.getElementById("total").innerText =
+        "Total: R$ " + total.toFixed(2);
+
+    }
+
+    /* PAGAMENTO SWITCH */
+    function show(type) {
+
+      document.querySelectorAll(".paybox").forEach(e => {
+        e.classList.add("hidden");
+      });
+
+      document.getElementById(type).classList.remove("hidden");
+
+    }
+
+    /* INICIAR */
+    render();
+
+  </script>
+
+</body>
+
+</html>
