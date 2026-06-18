@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamento - Patas & Amor</title>
+
+<style>
+:root{
+    --marrom:#6B3E26;
+    --marrom-claro:#8B5A3C;
+    --dourado:#D4A017;
+    --dourado-hover:#C49102;
+    --creme:#F7F2EB;
+    --branco:#FFFFFF;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:var(--creme);
+    min-height:100vh;
+    padding:30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#f5efe8;
+    border:3px solid var(--dourado);
+    border-radius:25px;
+    padding:30px;
+    position:relative;
+}
+
+.card::before{
+    content:"🐾";
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:30px;
+    opacity:.2;
+}
+
+h1{
+    color:var(--marrom);
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.input{
+    width:100%;
+    padding:15px;
+    border:2px solid #d9b85c;
+    border-radius:12px;
+    margin-bottom:15px;
+    font-size:15px;
+}
+
+.section-title{
+    color:var(--marrom);
+    margin:25px 0 15px;
+}
+
+.pagamento{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.opcao{
+    background:white;
+    border:2px solid #e5c76d;
+    border-radius:15px;
+    padding:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.opcao:hover{
+    transform:translateY(-2px);
+    border-color:var(--dourado);
+}
+
+.opcao input{
+    margin-right:8px;
+}
+
+.opcao strong{
+    color:var(--marrom);
+}
+
+.resumo{
+    margin-top:25px;
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    border:2px solid #ead08a;
+}
+
+.resumo h3{
+    color:var(--marrom);
+    margin-bottom:10px;
+}
+
+.total{
+    font-size:24px;
+    font-weight:bold;
+    color:var(--marrom);
+}
+
+.btn{
+    width:100%;
+    margin-top:25px;
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(
+        135deg,
+        var(--dourado),
+        var(--dourado-hover)
+    );
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.pet-icons{
+    text-align:center;
+    font-size:30px;
+    margin-top:20px;
+    opacity:.7;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>💳 Finalizar Pagamento</h1>
+
+        <p class="subtitulo">
+            Complete os dados abaixo para concluir seu pedido.
+        </p>
+
+        <input
+            type="text"
+            class="input"
+            placeholder="Nome completo">
+
+        <input
+            type="text"
+            class="input"
+            placeholder="CPF">
+
+        <input
+            type="email"
+            class="input"
+            placeholder="E-mail">
+
+        <h2 class="section-title">
+            🐾 Escolha a forma de pagamento
+        </h2>
+
+        <div class="pagamento">
+
+            <label class="opcao">
+                <input type="radio" name="pagamento" checked>
+                <strong>PIX</strong><br>
+                Pagamento instantâneo
+            </label>
+
+            <label class="opcao">
+                <input type="radio" name="pagamento">
+                <strong>Cartão de Crédito</strong><br>
+                Até 12x
+            </label>
+
+            <label class="opcao">
+                <input type="radio" name="pagamento">
+                <strong>Cartão de Débito</strong><br>
+                Aprovação imediata
+            </label>
+
+            <label class="opcao">
+                <input type="radio" name="pagamento">
+                <strong>Boleto Bancário</strong><br>
+                Compensação em até 3 dias
+            </label>
+
+            <label class="opcao">
+                <input type="radio" name="pagamento">
+                <strong>Dinheiro</strong><br>
+                Para retirada presencial
+            </label>
+
+            <label class="opcao">
+                <input type="radio" name="pagamento">
+                <strong>Carteira Digital</strong><br>
+                Mercado Pago / PayPal
+            </label>
+
+        </div>
+
+        <div class="resumo">
+
+            <h3>📦 Resumo do Pedido</h3>
+
+            <p>Itens adicionados ao carrinho.</p>
+
+            <br>
+
+            <div class="total">
+                Total: R$ 89,90
+            </div>
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="finalizarCompra()">
+
+            🐾 Finalizar Compra
+
+        </button>
+
+        <div class="pet-icons">
+            🐶 🐱 🦴 🐾 ❤️
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function finalizarCompra(){
+
+    const numeroPedido =
+        "#PA-" +
+        Math.floor(
+            100000 + Math.random() * 900000
+        );
+
+    localStorage.setItem(
+        "numeroPedido",
+        numeroPedido
+    );
+
+    window.location.href =
+        "pagamento-sucesso.html";
+}
+</script>
+
+</body>
+</html>
+
+
+</body>
+</html>
