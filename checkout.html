@@ -6,282 +6,110 @@
     <title>Document</title>
 </head>
 <body>
-    
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pagamento - Patas & Amor</title>
-
+<title>Patas & Amor - Pagamento</title>
 <style>
 :root{
-    --marrom:#6B3E26;
-    --marrom-claro:#8B5A3C;
-    --dourado:#D4A017;
-    --dourado-hover:#C49102;
-    --creme:#F7F2EB;
-    --branco:#FFFFFF;
+--marrom:#6B3E26;
+--dourado:#D4A017;
+--dourado-hover:#C49102;
+--creme:#F7F2EB;
 }
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:var(--creme);
-    min-height:100vh;
-    padding:30px;
-}
-
-.container{
-    max-width:1000px;
-    margin:auto;
-}
-
-.card{
-    background:#f5efe8;
-    border:3px solid var(--dourado);
-    border-radius:25px;
-    padding:30px;
-    position:relative;
-}
-
-.card::before{
-    content:"🐾";
-    position:absolute;
-    top:15px;
-    right:20px;
-    font-size:30px;
-    opacity:.2;
-}
-
-h1{
-    color:var(--marrom);
-    margin-bottom:10px;
-}
-
-.subtitulo{
-    color:#666;
-    margin-bottom:25px;
-}
-
-.input{
-    width:100%;
-    padding:15px;
-    border:2px solid #d9b85c;
-    border-radius:12px;
-    margin-bottom:15px;
-    font-size:15px;
-}
-
-.section-title{
-    color:var(--marrom);
-    margin:25px 0 15px;
-}
-
-.pagamento{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
-}
-
-.opcao{
-    background:white;
-    border:2px solid #e5c76d;
-    border-radius:15px;
-    padding:18px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.opcao:hover{
-    transform:translateY(-2px);
-    border-color:var(--dourado);
-}
-
-.opcao input{
-    margin-right:8px;
-}
-
-.opcao strong{
-    color:var(--marrom);
-}
-
-.resumo{
-    margin-top:25px;
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    border:2px solid #ead08a;
-}
-
-.resumo h3{
-    color:var(--marrom);
-    margin-bottom:10px;
-}
-
-.total{
-    font-size:24px;
-    font-weight:bold;
-    color:var(--marrom);
-}
-
-.btn{
-    width:100%;
-    margin-top:25px;
-    padding:18px;
-    border:none;
-    border-radius:15px;
-    background:linear-gradient(
-        135deg,
-        var(--dourado),
-        var(--dourado-hover)
-    );
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.pet-icons{
-    text-align:center;
-    font-size:30px;
-    margin-top:20px;
-    opacity:.7;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:var(--creme);padding:30px;}
+.container{max-width:1000px;margin:auto;}
+.card{background:#f5efe8;border:3px solid var(--dourado);border-radius:25px;padding:30px;}
+h1,h2,h3{color:var(--marrom);}
+.subtitulo{color:#666;margin:15px 0 25px;}
+.input{width:100%;padding:15px;border:2px solid #d9b85c;border-radius:12px;margin-bottom:15px;}
+.pagamento{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;}
+.opcao{background:#fff;border:2px solid #e5c76d;border-radius:15px;padding:18px;}
+.resumo,.rota{margin-top:25px;background:#fff;padding:20px;border-radius:15px;border:2px solid #ead08a;}
+.total{font-size:24px;font-weight:bold;color:var(--marrom);}
+.btn{width:100%;margin-top:25px;padding:18px;border:none;border-radius:15px;color:#fff;font-size:18px;background:linear-gradient(135deg,var(--dourado),var(--dourado-hover));cursor:pointer;}
+#paginaSucesso{display:none;text-align:center;}
+.numero{font-size:28px;font-weight:bold;color:var(--marrom);margin:20px 0;}
+.status{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.etapa{flex:1;min-width:120px;background:#f7f2eb;padding:12px;border-radius:12px;border:1px solid #ead08a;}
+.ativa{border:2px solid #D4A017;font-weight:bold;}
 </style>
 </head>
 <body>
 
 <div class="container">
 
-    <div class="card">
+<div class="card" id="paginaPagamento">
+<h1>💳 Finalizar Pagamento</h1>
+<p class="subtitulo">Complete os dados abaixo para concluir seu pedido.</p>
 
-        <h1>💳 Finalizar Pagamento</h1>
+<input class="input" placeholder="Nome completo">
+<input class="input" placeholder="CPF">
+<input class="input" placeholder="E-mail">
 
-        <p class="subtitulo">
-            Complete os dados abaixo para concluir seu pedido.
-        </p>
+<div class="pagamento">
+<label class="opcao"><input type="radio" name="pag" checked> PIX</label>
+<label class="opcao"><input type="radio" name="pag"> Crédito</label>
+<label class="opcao"><input type="radio" name="pag"> Débito</label>
+<label class="opcao"><input type="radio" name="pag"> Boleto</label>
+</div>
 
-        <input
-            type="text"
-            class="input"
-            placeholder="Nome completo">
+<div class="resumo">
+<h3>📦 Resumo do Pedido</h3>
+<p>Itens adicionados ao carrinho.</p>
+<div class="total">Total: R$ 89,90</div>
+</div>
 
-        <input
-            type="text"
-            class="input"
-            placeholder="CPF">
+<button class="btn" onclick="finalizarCompra()">🐾 Finalizar Compra</button>
+</div>
 
-        <input
-            type="email"
-            class="input"
-            placeholder="E-mail">
+<div class="card" id="paginaSucesso">
+<h1>✅ Pagamento Concluído!</h1>
+<p>Seu pedido foi registrado com sucesso.</p>
 
-        <h2 class="section-title">
-            🐾 Escolha a forma de pagamento
-        </h2>
+<div class="numero" id="pedido"></div>
 
-        <div class="pagamento">
+<div class="rota">
+<h3>🚚 Rastreamento do Pedido</h3>
+<p>Abaixo está uma rota fictícia de exemplo:</p>
 
-            <label class="opcao">
-                <input type="radio" name="pagamento" checked>
-                <strong>PIX</strong><br>
-                Pagamento instantâneo
-            </label>
+<div class="status">
+<div class="etapa ativa">📦 Pedido Confirmado</div>
+<div class="etapa ativa">🏪 Em Separação</div>
+<div class="etapa">🚚 Em Transporte</div>
+<div class="etapa">🏠 Entregue</div>
+</div>
 
-            <label class="opcao">
-                <input type="radio" name="pagamento">
-                <strong>Cartão de Crédito</strong><br>
-                Até 12x
-            </label>
+<p style="margin-top:15px">
+Origem: Centro de Distribuição João Pessoa<br>
+Destino: Cliente - João Pessoa/PB
+</p>
+</div>
 
-            <label class="opcao">
-                <input type="radio" name="pagamento">
-                <strong>Cartão de Débito</strong><br>
-                Aprovação imediata
-            </label>
-
-            <label class="opcao">
-                <input type="radio" name="pagamento">
-                <strong>Boleto Bancário</strong><br>
-                Compensação em até 3 dias
-            </label>
-
-            <label class="opcao">
-                <input type="radio" name="pagamento">
-                <strong>Dinheiro</strong><br>
-                Para retirada presencial
-            </label>
-
-            <label class="opcao">
-                <input type="radio" name="pagamento">
-                <strong>Carteira Digital</strong><br>
-                Mercado Pago / PayPal
-            </label>
-
-        </div>
-
-        <div class="resumo">
-
-            <h3>📦 Resumo do Pedido</h3>
-
-            <p>Itens adicionados ao carrinho.</p>
-
-            <br>
-
-            <div class="total">
-                Total: R$ 89,90
-            </div>
-
-        </div>
-
-        <button
-            class="btn"
-            onclick="finalizarCompra()">
-
-            🐾 Finalizar Compra
-
-        </button>
-
-        <div class="pet-icons">
-            🐶 🐱 🦴 🐾 ❤️
-        </div>
-
-    </div>
+<button class="btn" onclick="voltar()">🏠 Voltar ao Pagamento</button>
+</div>
 
 </div>
 
 <script>
 function finalizarCompra(){
+const numeroPedido = "#PA-" + Math.floor(100000 + Math.random()*900000);
+document.getElementById("pedido").innerText = "Pedido: " + numeroPedido;
 
-    const numeroPedido =
-        "#PA-" +
-        Math.floor(
-            100000 + Math.random() * 900000
-        );
+document.getElementById("paginaPagamento").style.display = "none";
+document.getElementById("paginaSucesso").style.display = "block";
+}
 
-    localStorage.setItem(
-        "numeroPedido",
-        numeroPedido
-    );
-
-    
+function voltar(){
+document.getElementById("paginaSucesso").style.display = "none";
+document.getElementById("paginaPagamento").style.display = "block";
 }
 </script>
 
 </body>
 </html>
-
-
 </body>
 </html>
